@@ -1,10 +1,8 @@
 package ch.bbw.kleider_shop.dbo;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @Builder
@@ -12,11 +10,13 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @Setter
 @Getter
+@Table(name = "clothes_type")
 public class ClothesType {
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @Column(name = "type")
     private String type;

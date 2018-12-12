@@ -3,6 +3,7 @@ package ch.bbw.kleider_shop.dbo;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,11 +12,13 @@ import java.util.List;
 @AllArgsConstructor
 @Setter
 @Getter
+@Table(name = "look")
 public class Look {
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "model_id", referencedColumnName = "id")
@@ -28,7 +31,12 @@ public class Look {
     @Column(name = "name")
     private String name;
 
+    @ManyToMany(mappedBy = "looks")
+    private List<Clothes> clothes = new ArrayList<Clothes>();
+
     @ManyToMany
-    private List<Clothes> clothes;
+    @JoinTable(name = "look_season",
+            joinColumns = {@JoinColumn(name = "look_id")}, inverseJoinColumns = {@JoinColumn(name = "season_id")})
+    private List<Season> seasons;
 
 }

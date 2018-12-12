@@ -6,6 +6,10 @@ spring:
     password:
     testOnBorrow: true
   jpa:
-    show-sql: false
-    hibernate:
-      ddl-auto: none
+    hibernate:.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+  jackson:
+      serialization:
+        write_dates_as_timestamps: false

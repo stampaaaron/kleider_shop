@@ -1,9 +1,10 @@
 package ch.bbw.kleider_shop.dbo;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,11 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @Setter
 @Getter
+@Table(name = "clothes")
 public class Clothes {
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "clothes_type_id", referencedColumnName = "id")
@@ -38,7 +41,19 @@ public class Clothes {
     @Column(name = "size")
     private int size;
 
-    @ManyToMany(mappedBy = "clothes")
-    private List<Look> looks;
+    @ManyToMany
+    @JoinTable(name = "clothes_season",
+            joinColumns = {@JoinColumn(name = "clothes_id")}, inverseJoinColumns = {@JoinColumn(name = "season_id")})
+    private List<Season> seasons;
 
+    @ManyToMany
+    @JoinTable(name = "look_clothes",
+        joinColumns = {@JoinColumn(name = "clothes_id")},
+        inverseJoinColumns = {@JoinColumn(name = "look_id")})
+    @JsonIgnore
+    private List<Look> looks = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "clothes")
+    @JsonIgnore
+    private List<OrderItem> orderItems;
 }

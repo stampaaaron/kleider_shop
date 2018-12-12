@@ -2,9 +2,7 @@ package ch.bbw.kleider_shop.dbo;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Builder
@@ -12,11 +10,13 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Setter
 @Getter
+@Table(name = "brand")
 public class Brand {
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @Column(name = "brand")
     private String brand;
