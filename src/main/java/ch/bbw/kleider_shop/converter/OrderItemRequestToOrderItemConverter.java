@@ -4,7 +4,6 @@ import ch.bbw.kleider_shop.dbo.Clothes;
 import ch.bbw.kleider_shop.dbo.OrderItem;
 import ch.bbw.kleider_shop.model.ClothesOrderItem;
 import ch.bbw.kleider_shop.model.OrderItemRequest;
-import ch.bbw.kleider_shop.model.OrderItemRespons;
 
 import java.util.ArrayList;
 import java.util.List;
