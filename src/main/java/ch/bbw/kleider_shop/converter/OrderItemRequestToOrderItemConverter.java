@@ -14,11 +14,10 @@ public class OrderItemRequestToOrderItemConverter {
 
     public static OrderItem convert(OrderItemRequest orderItemRequest) {
 
-        Clothes previousClothes = null;
         List<Clothes> clothesList = new ArrayList<>();
 
         for (ClothesOrderItem clothesOrderItem : orderItemRequest.getClothesOrderItems()){
-            for(int i = 0; i > clothesOrderItem.getCount(); i++) {
+            for(int i = 0; i < clothesOrderItem.getCount(); i++) {
                 clothesList.add(clothesOrderItem.getClothes());
             }
         }
