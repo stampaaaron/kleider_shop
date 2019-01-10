@@ -6,10 +6,24 @@ spring:
     password:
     testOnBorrow: true
   jpa:
-    hibernate:.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.MariaDBDialect
 
   jackson:
-      serialization:
-        write_dates_as_timestamps: false
+    serialization:
+      write_dates_as_timestamps: false
+
+jwt:
+  secret: secret
+
+password:
+  secret: secret
+
+tomcat:
+  ajp:
+    enabled: false
+
+server:
+  port: 3000

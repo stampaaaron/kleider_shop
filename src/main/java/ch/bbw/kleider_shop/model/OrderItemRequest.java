@@ -1,10 +1,6 @@
 package ch.bbw.kleider_shop.model;
 
 import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.List;
 
 @Builder

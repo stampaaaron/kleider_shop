@@ -3,10 +3,7 @@ package ch.bbw.kleider_shop.controller;
 import ch.bbw.kleider_shop.dbo.Clothes;
 import ch.bbw.kleider_shop.facade.ClothesFacade;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +15,7 @@ public class ClothesController {
     @Autowired
     private ClothesFacade clothesFacade;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.GET)
     public List<Clothes> getAllClothes() {
         return clothesFacade.getAllClothes();

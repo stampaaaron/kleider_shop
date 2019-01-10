@@ -1,6 +1,5 @@
 package ch.bbw.kleider_shop.controller;
 
-import ch.bbw.kleider_shop.dbo.OrderItem;
 import ch.bbw.kleider_shop.facade.OrderItemFacade;
 import ch.bbw.kleider_shop.model.OrderItemRequest;
 import ch.bbw.kleider_shop.model.OrderItemRespons;
@@ -9,7 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/order")
